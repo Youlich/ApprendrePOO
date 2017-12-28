@@ -8,8 +8,13 @@ use App\Entity\Article;
 //INSTANCE = objet
 
 $article1 = new Article();
-$article1->reference = GFTYR; // fonctionne que si l'attribut est public
-echo $article1->reference; // fonctionne que si l'attribut est public
-
+$article2 = new Article();
+// on récupère le setter créé dans index.php et on lui
+// affecte une valeur
+$article1->setReference('GFTR');
+$article1->setTradeName('Mon article 1');
+$article1->setDescription('Cet article est joli');
 //affichage
-var_dump ($article1);
+var_dump($article1);
+
+
