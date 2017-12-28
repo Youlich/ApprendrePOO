@@ -30,7 +30,7 @@ class Article
             // l'utiliser, contourne le pb d'attribut private
         }
     }
-
+// création des autres setters avec ALT inser
     /**
      * @param string $tradeName
      */
@@ -46,5 +46,33 @@ class Article
     {
         $this->description = $description;
     }
+
+    // création getters pour pouvoir lire les attributs privés dans index.php
+    /**
+     * @return string
+     */
+    public function getReference () //jamais de valeur dans () pour les getters
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTradeName ()
+    {
+        return $this->tradeName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription ()
+    {
+        return $this->description;
+    }
+
+
+
 
 }

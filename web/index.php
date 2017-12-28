@@ -15,6 +15,8 @@ $article1->setReference('GFTR');
 $article1->setTradeName('Mon article 1');
 $article1->setDescription('Cet article est joli');
 //affichage
-var_dump($article1);
+echo $article1->getReference();
+echo $article1->getDescription();
+echo $article1->getTradeName();
 
 
