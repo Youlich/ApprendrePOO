@@ -80,8 +80,12 @@ private $code;
 
     // constructeur qui va permettre d'obtenir la date de création du compte client.
     // Appelé avec le new dans indexclient.php
-    public function __construct ()
+    // ajout des autres attributs dans le constructeur qui remplaceront
+    // les setters et getters dans la classe
+    public function __construct ($lastName, $firstName)
     {
+    $this->lastName = $lastName;
+    $this->firstName = $lastName;
     $this->createAt = new \DateTime('now');
     }
 }
