@@ -2,26 +2,31 @@
 
 //inclusion du fichier
 require_once "../src/App/Entity/Client.php";
-include "../src/App/Entity/Adresse.php";
+include "../src/App/Entity/Address.php";
 // namespace utilisé donc il faut le rajouter avec use
 use App\Entity\Client;
-use App\Entity\Adresse;
+use App\Entity\Address;
 
-$clientA = new Client('Dupond','Jean');
+$client = new Client('Dupond','Jean');
 
-$adresse = new Adresse();
-$adresse->setStreet('7 rue du Moulin');
-$adresse->setPostalCode('75000');
-$adresse->setCity('Paris');
+$adressFacturation = new Address();
+$adressFacturation->setStreet('7 rue du Moulin');
+$adressFacturation->setPostalCode('75000');
+$adressFacturation->setCity('Paris');
 
-$clientA->setAdresse($adresse);
+$client->addAdress($adressFacturation);
 
-// on affiche la ville
-echo $clientA->getAdresse()->getCity();
-//on modifie la ville
-$adresse->setCity('Rennes');
-echo '<br/>';
-//on l'affiche
-var_dump($clientA->getAdresse()->getCity());
+$adressFacturation2 = new Address();
+$adressFacturation2->setStreet('8 rue du pays');
+$adressFacturation2->setPostalCode('75000');
+$adressFacturation2->setCity('Paris');
+
+$client->addAdress($adressFacturation2);
 
 
+var_dump($client->getAddressCollection());
+
+//parcourir la collection comme un tableau avec foreach
+foreach ($client->getAddressCollection() as $address){
+    var_dump($address->getCity());
+}

@@ -14,24 +14,11 @@ private $createAt;
 
 private $code;
 
-private $adresse;
-
     /**
-     * @return mixed
+     * @var Array tableau d'adresses
      */
-    public function getAdresse ()
-    {
-        return $this->adresse;
-    }
 
-    /**
-     * @param mixed $adresse
-     */
-    public function setAdresse (Adresse $adresse) // utilisation de la classe Adresse.php
-    {
-        $this->adresse = $adresse;
-    }
-
+private $addressCollection;
 
 
 
@@ -105,10 +92,39 @@ private $adresse;
     // les setters et getters dans la classe
     public function __construct ($lastName, $firstName)
     {
+    $this->addressCollection = [];
     $this->lastName = $lastName;
     $this->firstName = $lastName;
     $this->createAt = new \DateTime('now');
     $this->code = $this->getHash(); // on généère le code auto en utilisant la fonction getHash
+    }
+
+    //permet d'ajouter une adresse à la collection
+
+    public function addAdress (Address $address)
+
+    {
+        $this->addressCollection[] = $address;
+        return true;
+    }
+
+    //permet de suprimer une adresse de la collection
+
+    public function removeAddress(Address $address)
+    {
+        $key = array_search($address,$this->addressCollection,true);
+        if($key === false){
+            return false;
+        }
+        unset($this->addressCollection[$key]);
+        return true;
+    }
+
+    //retourne la collection
+
+    public function getAddressCollection()
+    {
+        return $this->addressCollection;
     }
 // génère un hash à partir du nom et prénom
     private function getHash()

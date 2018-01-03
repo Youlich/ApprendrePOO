@@ -5,6 +5,8 @@ namespace App\Entity;
 
 class Article2
 {
+    // création d'une variable de classe = commune à tous les objets de la classe
+    public static $remise;
     /**
      * @var string $reference référence de l'article
      */

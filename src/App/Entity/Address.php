@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 
-class Adresse
+class Address
 {
     private $street;
     private $postalCode;
