@@ -10,3 +10,7 @@ $clientA = new Client('Dupond','Jean');
 
 
 var_dump($clientA);
+
+unset ($clientA);
+
+echo '<p> Ceci est la fin du script</p>';

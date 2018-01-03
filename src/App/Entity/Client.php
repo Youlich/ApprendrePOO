@@ -94,4 +94,11 @@ private $code;
     {
         return sha1($this->lastName.$this->firstName);
     }
+
+    public function __destruct () //s'exécute à la fin du script. Sauf si on le demande avant avec
+        // la fonction unset
+    {
+        // TODO: Implement __destruct() method.
+        echo '<p> L\'objet de type Client '.$this->getLastName().' a été détruit';
+    }
 }
