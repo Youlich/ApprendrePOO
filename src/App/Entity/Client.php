@@ -87,5 +87,11 @@ private $code;
     $this->lastName = $lastName;
     $this->firstName = $lastName;
     $this->createAt = new \DateTime('now');
+    $this->code = $this->getHash(); // on généère le code auto en utilisant la fonction getHash
+    }
+// génère un hash à partir du nom et prénom
+    private function getHash()
+    {
+        return sha1($this->lastName.$this->firstName);
     }
 }
