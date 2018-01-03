@@ -14,6 +14,27 @@ private $createAt;
 
 private $code;
 
+private $adresse;
+
+    /**
+     * @return mixed
+     */
+    public function getAdresse ()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse (Adresse $adresse) // utilisation de la classe Adresse.php
+    {
+        $this->adresse = $adresse;
+    }
+
+
+
+
     /**
      * @return mixed
      */
